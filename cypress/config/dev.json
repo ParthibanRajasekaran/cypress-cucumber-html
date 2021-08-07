@@ -1,0 +1,6 @@
+{
+    "env":{
+        "url":"https://the-internet.herokuapp.com",
+        "environment":"development"
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "chromeWebSecurity":false,
+
+  "defaultCommandTimeout": 8000,
+  "pageLoadTimeout": 30000,
+  "execTimeout": 60000,
+  "requestTimeout": 15000,
+  "responseTimeout": 15000,
+
+  "reporter": "mochawesome",
+
+  "viewportWidth": 1000,
+  "viewportHeight": 600,
+  "waitForAnimation": true,
+  
+  "env": {
+    "url": "https://rahulshettyacademy.com"
+  },
+  "testFiles": "**/*.feature",
+
+  "retries": {
+    
+    "runMode": 1
+  }
+}
