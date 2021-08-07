@@ -1,6 +1,6 @@
 cypress/cucumber-html-report.js
 cypress/reports/
-node_modules/
+node_modules
 cypress/videos/
 cypress/cucumber-json/
 cypress/screenshots/
