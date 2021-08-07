@@ -1,6 +1,8 @@
 {
-    "url":"https://the-internet.herokuapp.com",
     "env": {
-        "environment":"int"
+        "url":"https://the-internet.herokuapp.com",
+        "environment":"int",
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
     }
   }

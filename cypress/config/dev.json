@@ -1,6 +1,8 @@
 {
     "env":{
         "url":"https://the-internet.herokuapp.com",
-        "environment":"development"
+        "environment":"development",
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
     }
 }

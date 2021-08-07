@@ -12,12 +12,16 @@ class LoginPage{
         return cy.get('#username')
     }
 
-    getUserNameField(){
+    getPasswordField(){
         return cy.get('#password')
     }
 
     getLoginButton(){
         return cy.get('button.radius')
+    }
+
+    getLofinFailureError(){
+        return cy.get('#flash')
     }
 
 }

@@ -13,9 +13,6 @@
   "viewportHeight": 600,
   "waitForAnimation": true,
   
-  "env": {
-    "url": "https://rahulshettyacademy.com"
-  },
   "testFiles": "**/*.feature",
 
   "retries": {

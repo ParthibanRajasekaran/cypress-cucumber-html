@@ -30,6 +30,5 @@ module.exports = (on, config) => {
   on('file:preprocessor', cucumber())
 
   const file = config.env.configFile || 'int'
-
   return getConfigurationByFile(file)
 };
