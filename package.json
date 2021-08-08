@@ -1,10 +1,10 @@
 {
   "name": "automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "sample cypress bdd template",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run",
+    "test": "node_modules/.bin/cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome --reporter mochawesome"
   },

@@ -4,3 +4,5 @@ node_modules
 cypress/videos/
 cypress/cucumber-json/
 cypress/screenshots/
+mochawesome-report/
+.DS_Store
