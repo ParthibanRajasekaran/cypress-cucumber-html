@@ -1,0 +1,148 @@
+[
+  {
+    "description": "    User Authentication",
+    "keyword": "Feature",
+    "name": "User Login",
+    "line": 1,
+    "id": "user-login",
+    "tags": [],
+    "uri": "login.feature",
+    "elements": [
+      {
+        "id": "user-login;login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Login with valid credentials",
+        "tags": [
+          {
+            "name": "@validCredentials",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I open Login Page",
+            "result": {
+              "status": "passed",
+              "duration": 1957000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I enter valid credentials",
+            "result": {
+              "status": "passed",
+              "duration": 1355000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "User must be able to login",
+            "result": {
+              "status": "passed",
+              "duration": 49000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "user-login;login-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Login with invalid credentials",
+        "tags": [
+          {
+            "name": "@invalidCredentials",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I open Login Page",
+            "result": {
+              "status": "passed",
+              "duration": 753000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I enter invalid \"username\" \"password\"",
+            "result": {
+              "status": "passed",
+              "duration": 783000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "User must not be able to login",
+            "result": {
+              "status": "passed",
+              "duration": 28000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "user-login;login-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Login with invalid credentials",
+        "tags": [
+          {
+            "name": "@invalidCredentials",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I open Login Page",
+            "result": {
+              "status": "passed",
+              "duration": 475000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I enter invalid \"123456\" \"123456\"",
+            "result": {
+              "status": "passed",
+              "duration": 627000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "User must not be able to login",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
