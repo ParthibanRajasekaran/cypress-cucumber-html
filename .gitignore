@@ -6,3 +6,6 @@ cypress/cucumber-json/
 cypress/screenshots/
 mochawesome-report/
 .DS_Store
+package-lock.json
+
+.idea/
