@@ -1,11 +1,11 @@
 name: Cypress Tests
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
   schedule:
   # runs tests every day at 4am
-  - cron: '0 4 * * *'
+  - cron: '0 4 * * 2,4,6'
 
 jobs:
   cross-browser-testing:
