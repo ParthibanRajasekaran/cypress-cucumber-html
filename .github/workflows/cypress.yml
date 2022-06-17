@@ -37,6 +37,10 @@ jobs:
         with:
           browser: edge
           env: configFile=int
+      - name: Copy test execution videos
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
       - name: Cypress report generation 
         run: node cucumber-html-report.js
       
