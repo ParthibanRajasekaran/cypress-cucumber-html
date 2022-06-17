@@ -38,7 +38,7 @@ jobs:
           browser: edge
           env: configFile=int
       - name: Cypress report generation 
-        run: node custom-reporter.js
+        run: node cucumber-html-report.js
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
         with:
