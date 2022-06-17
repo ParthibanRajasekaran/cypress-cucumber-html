@@ -46,6 +46,13 @@ jobs:
 
       - name: Cypress report generation
         run: node cucumber-html-report.js
+      
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir:  /__w/cypress-cucumber/cypress-cucumber/reports/cucumber-htmlreport.html/
+         commit_message: ${{ github.event.head_commit.message }}
 
       - uses: actions/upload-artifact@v2
         if: failure()
@@ -113,10 +120,3 @@ jobs:
 #        with:
 #          name: cypress-videos
 #          path: cypress/videos
-#
-#      - name: Deploy report page
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: ./public
-#          commit_message: ${{ github.event.head_commit.message }}
