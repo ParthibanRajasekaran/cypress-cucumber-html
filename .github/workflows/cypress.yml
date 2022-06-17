@@ -8,41 +8,78 @@ on:
   - cron: '0 4 * * 2,4,6'
 
 jobs:
-  cross-browser-testing:
+#  cross-browser-testing:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        browser: [chrome, firefox, electron, chromium ]
+#    name: Cypress tests using ${{ matrix.browser }} browser
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Cypress test run
+#        uses: cypress-io/github-action@v2
+#        with:
+#          browser: ${{ matrix.browser }}
+#          headless: true
+#          env: configFile=int
+
+  Run-tests-for:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        browser: [chrome, firefox, electron, chromium ]
-    name: Cypress tests using ${{ matrix.browser }} browser
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cypress test run
-        uses: cypress-io/github-action@v2
-        with:
-          browser: ${{ matrix.browser }}
-          headless: true
-          env: configFile=int
-          
-  edge-test:
-    runs-on: windows-latest
     container: cypress/browsers:node14.19.0-chrome100-ff99-edge
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js 16.x
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
-          node-version: 16.x
+          node-version: 14.x
 
       - name: Install dependencies
         run: |
           npm install
-      
-      - name: Run Cypress tests
-        run: npm run test:edge
+
+      - name: Test run
+        run: npx cypress run --browser=chrome
+
+      - name: Cypress report generation
+        run: node cucumber-html-report.js
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+#
+#  edge-test:
+#    runs-on: windows-latest
+#    container: cypress/browsers:node14.19.0-chrome100-ff99-edge
+#    steps:
+#      # https://github.com/actions/checkout
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#
+#      - name: Use Node.js 16.x
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: 16.x
+#
+#      - name: Install dependencies
+#        run: |
+#          npm install
+#
+#      - name: Run Cypress tests
+#        run: npm run test:edge
 #         continue-on-error: true
 
 #   edge-test:
@@ -60,26 +97,26 @@ jobs:
 #       - name: Copy test execution videos
 #         run: |
 #           mkdir public
-#           cp -r cypress/videos public/videos
-      - name: Cypress report generation 
-        run: node cucumber-html-report.js
-      
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      # Test run video was always captured, so this action uses "always()" condition
-      
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          
-      - name: Deploy report page
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          commit_message: ${{ github.event.head_commit.message }}
+##           cp -r cypress/videos public/videos
+#      - name: Cypress report generation
+#        run: node cucumber-html-report.js
+#
+#      - uses: actions/upload-artifact@v2
+#        if: failure()
+#        with:
+#          name: cypress-screenshots
+#          path: cypress/screenshots
+#      # Test run video was always captured, so this action uses "always()" condition
+#
+#      - uses: actions/upload-artifact@v2
+#        if: always()
+#        with:
+#          name: cypress-videos
+#          path: cypress/videos
+#
+#      - name: Deploy report page
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./public
+#          commit_message: ${{ github.event.head_commit.message }}

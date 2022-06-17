@@ -25,6 +25,7 @@
     "multiple-cucumber-html-reporter": "^1.20.0"
   },
   "dependencies": {
+    "npm": "^8.12.2",
     "prettier": "^2.6.2"
   }
 }
