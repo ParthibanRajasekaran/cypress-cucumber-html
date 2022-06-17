@@ -23,24 +23,44 @@ jobs:
           browser: ${{ matrix.browser }}
           headless: true
           env: configFile=int
-
-
+          
   edge-test:
     runs-on: windows-latest
-    # let's make sure our tests pass on Edge browser and report gets published
-    name: Cypress tests using edge browser
+    container: cypress/browsers:node14.19.0-chrome100-ff99-edge
     steps:
+      # https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run Cypress tests on edge
-        uses: cypress-io/github-action@v2
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
         with:
-          browser: edge
-          env: configFile=int
-      - name: Copy test execution videos
+          node-version: 16.x
+
+      - name: Install dependencies
         run: |
-          mkdir public
-          cp -r cypress/videos public/videos
+          npm install
+      
+      - name: Run Cypress tests
+        run: npm run test:edge
+#         continue-on-error: true
+
+#   edge-test:
+#     runs-on: windows-latest
+#     # let's make sure our tests pass on Edge browser and report gets published
+#     name: Cypress tests using edge browser
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Run Cypress tests on edge
+#         uses: cypress-io/github-action@v2
+#         with:
+#           browser: edge
+#           env: configFile=int
+#       - name: Copy test execution videos
+#         run: |
+#           mkdir public
+#           cp -r cypress/videos public/videos
       - name: Cypress report generation 
         run: node cucumber-html-report.js
       
