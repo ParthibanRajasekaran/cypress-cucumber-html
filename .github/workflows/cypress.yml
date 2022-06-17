@@ -39,6 +39,20 @@ jobs:
           env: configFile=int
       - name: Cypress report generation 
         run: node cucumber-html-report.js
+      
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
         with:
