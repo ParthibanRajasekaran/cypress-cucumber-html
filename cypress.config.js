@@ -1,5 +1,5 @@
 require("dotenv").config({ path: `.env${process.env.E2E_ENV}` });
-// require("dotenv").config();
+// require("dotenv").config(); ## Enable this instead of the above line if you wish to read from the default .env file
 const { defineConfig } = require("cypress");
 
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
@@ -14,12 +14,16 @@ module.exports = defineConfig({
   modifyObstructiveCode: true,
   e2e: {
     async setupNodeEvents(on, config) {
-      config.baseUrl = process.env.URL;
+      config.env = config.env || {};
+
+      // config.baseUrl = process.env.URL;
       config.env.url = process.env.URL;
       config.env.environment = process.env.ENVIRONMENT;
       config.env.username = process.env.USERNAME;
       config.env.password = process.env.PASSWORD;
       config.env.emailId = process.env.EMAIL_ID;
+
+      console.log(`Tests are running on ${config.env.environment} environment`);
 
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
