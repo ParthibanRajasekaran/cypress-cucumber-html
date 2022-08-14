@@ -14,6 +14,7 @@ To know about recent Cypress feature click [here](https://www.cypress.io/feature
 Minimum configuration for optimal usage:
 [NPM](https://www.npmjs.com) -  8+
 [Node](https://nodejs.org/en/download/) - 16+
+[Cypress](https://github.com/cypress-io/cypress/releases) - 10+
 
 Note: 
 - Node installation will automatically intall NPM from the above link
@@ -21,6 +22,7 @@ Note:
 ```bash 
 npm --version
 node --version
+Cypress --version
 ```
 
 **IDE Installation:** [Visual Studio code / VS code](https://code.visualstudio.com)
@@ -48,30 +50,39 @@ To run the tests via CLI on a headless mode
 npx cypress run
 ```
 
-To run the tests via CLI with an env config
+To run the tests via CLI with an .env (cypress-cucumber-html/.env)
 ```bash 
-npx cypress run --env configFile=<<env file>>
+npx cross-env E2E_ENV= cypress run
+```
+
+To run the tests via CLI with an .env (cypress-cucumber-html/.env.dev)
+```bash 
+npx cross-env E2E_ENV=.dev cypress run
+```
+
+To run the tests via CLI with an .env (cypress-cucumber-html/.env.qa)
+```bash 
+npx cross-env E2E_ENV=.qa cypress run
 ```
 
 To run the tests via CLI with an env config
 ```bash 
-npx cypress run --browser chrome
+npx cross-env E2E_ENV=.dev cypress run --browser chrome
 ```
 
 To run the tests via CLI and generate a execution report
 ```bash 
-npx cypress run --reporter mochawesome
+npx cross-env E2E_ENV=.dev cypress run --reporter mochawesome
 ```
 
 ## Implementing tests
 
-- Create a XXX.feature file within **cypress / integration / cucumber** (*Eg. XYZ.feature*)
+- Create a XXX.feature file within **cypress / e2e / features** (*Eg. XYZ.feature*)
 - Create scenarios within the feature file in gherkin format for your requirement 
 - Select the scenario create and right click on it and copy step definition to the clip board
-- Create a folder with the same name as the **.feature** file name (*Eg. XYZ if the feature file name was XYZ.feature*)
-- Within the created folder, create a **StepDefinition class**
+- Within e2e/step_definitions, create a **StepDefinition class** with the same name as the feature file
 - Paste the step definitions from the clipboard with blank step definitions
-- Create pages and components class in **cypress / pageObjects** and add only locators to it (Only [CSS selectors](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) can be used as locators)
+- Create pages and components class in **cypress / pages** and add only locators to it (Only [CSS selectors](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) can be used as locators)
 - Create an object for the page class within the StepDefinition class and access the locators and add relevant actions and validations 
 
 ## Bonus
