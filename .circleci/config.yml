@@ -23,4 +23,4 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cross-env E2E_ENV=.dev $(npm bin)/cypress run
+      - run: npx cross-env E2E_ENV=.dev $(npm bin)/cypress run
