@@ -12,8 +12,8 @@ To know about recent Cypress feature click [here](https://www.cypress.io/feature
 ## Pre-requisite:
 
 Minimum configuration for optimal usage:
-[NPM](https://www.npmjs.com) -  6.14.14
-[Node](https://nodejs.org/en/download/) - 14.17.4
+[NPM](https://www.npmjs.com) -  8+
+[Node](https://nodejs.org/en/download/) - 16+
 
 Note: 
 - Node installation will automatically intall NPM from the above link
