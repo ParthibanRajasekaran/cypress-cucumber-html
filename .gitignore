@@ -51,3 +51,9 @@ Thumbs.db
 cucumber-report.html
 
 package-lock.json
+
+cypress/screenshots/
+
+jsonlogs
+jsonlogs/*
+jsonlogs/messages.ndjson
