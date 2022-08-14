@@ -21,6 +21,7 @@
     "multiple-cucumber-html-reporter": "^1.21.6"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.1"
   }
 }
