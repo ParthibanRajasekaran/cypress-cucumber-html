@@ -70,10 +70,21 @@ To run the tests via CLI with an env config
 npx cross-env E2E_ENV=.dev cypress run --browser chrome
 ```
 
-To run the tests via CLI and generate a execution report
+To run one particulat tag
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run --reporter mochawesome
+npx cross-env E2E_ENV=.dev cypress run --env TAGS="@invalid"
 ```
+
+To run the tests with one particular tag but exclude another tag name via CLI
+```bash 
+npx cross-env E2E_ENV=.dev cypress run --env TAGS="@login and not @invalid"
+```
+
+To run the tests with combination of tag names via CLI
+```bash 
+npx cross-env E2E_ENV=.dev cypress run --env TAGS="@login and @invalid"
+```
+
 
 ## Implementing tests
 
@@ -84,6 +95,7 @@ npx cross-env E2E_ENV=.dev cypress run --reporter mochawesome
 - Paste the step definitions from the clipboard with blank step definitions
 - Create pages and components class in **cypress / pages** and add only locators to it (Only [CSS selectors](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) can be used as locators)
 - Create an object for the page class within the StepDefinition class and access the locators and add relevant actions and validations 
+- Add tag names to the features / scenario / scenario outlines to provide user with an option to group test execution
 
 ## Bonus
 [Cypress Cheat Sheet](https://chercher.tech/cypress-io/cheat-sheet-cypress-io)
