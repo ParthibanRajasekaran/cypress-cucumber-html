@@ -1,3 +1,4 @@
+@login
 Feature: User Login 
 
     User Authentication
@@ -7,6 +8,8 @@ Feature: User Login
     When I enter valid credentials
     Then User must be able to login
 
+    
+    @invalid
     Scenario Outline: Login with invalid credentials
     Given I open Login Page
     When I enter invalid "<username>" "<password>"
