@@ -8,9 +8,10 @@ const addCucumberPreprocessorPlugin =
 const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
-const registerReportPortalPlugin = require("@reportportal/agent-js-cypress/lib/plugin");
+const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin');
 
 module.exports = defineConfig({
+  projectId: 'd1dmex',
   modifyObstructiveCode: true,
   e2e: {
     async setupNodeEvents(on, config) {
@@ -31,13 +32,36 @@ module.exports = defineConfig({
 
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
-
       await registerReportPortalPlugin(on, config);
-
       return config;
     },
     specPattern: "cypress/e2e/features/*.feature",
     supportFile: "cypress/support/e2e.js",
     chromeWebSecurity: false,
+  },
+
+  reporter: '@reportportal/agent-js-cypress',
+  reporterOptions: {
+    endpoint: 'http://localhost:8080/api/v1',
+    token: '27c4a896-b58f-4f6a-9684-0112d013f8cf',
+    launch: "cypress-cucumber-html",
+    project: "superadmin_personal",
+    description: "Test run for Cypress E2E",
+
+    screenshotsFolder: "cypress/screenshots",
+    fixturesFolder: "cypress/fixtures",
+
+    screenshotOnRunFailure: true,
+    skippedIssue: true,
+
+    attributes: [
+      {
+        key: "attributeKey",
+        value: "attrbiuteValue"
+      },
+      {
+        value: "secondAttrbiuteValue"
+      }
+    ]
   },
 });

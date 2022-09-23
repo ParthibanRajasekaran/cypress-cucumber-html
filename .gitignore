@@ -57,3 +57,5 @@ cypress/screenshots/
 jsonlogs
 jsonlogs/*
 jsonlogs/messages.ndjson
+
+coverage/
