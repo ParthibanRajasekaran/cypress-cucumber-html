@@ -42,10 +42,10 @@ module.exports = defineConfig({
 
   reporter: '@reportportal/agent-js-cypress',
   reporterOptions: {
-    endpoint: 'http://localhost:8080/api/v1',
-    token: '27c4a896-b58f-4f6a-9684-0112d013f8cf',
+    endpoint: 'https://demo.reportportal.io/api/v1',
+    token: 'ad694c45-d983-4df6-a6f0-2ba15ee4ccbf',
     launch: "cypress-cucumber-html",
-    project: "superadmin_personal",
+    project: "parthibanrajasekaran_personal",
     description: "Test run for Cypress E2E",
 
     screenshotsFolder: "cypress/screenshots",
@@ -56,11 +56,11 @@ module.exports = defineConfig({
 
     attributes: [
       {
-        key: "attributeKey",
-        value: "attrbiuteValue"
+        key: "test",
+        value: "login"
       },
       {
-        value: "secondAttrbiuteValue"
+        value: "herokuapp"
       }
     ]
   },
