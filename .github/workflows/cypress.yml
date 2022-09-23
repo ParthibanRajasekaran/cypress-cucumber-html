@@ -40,7 +40,7 @@ jobs:
       - run: npm install
 
       - name: Test run
-        run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secret.CYPRESS_RECORD_KEY}}
+        run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secrets.CYPRESS_RECORD_KEY}}
 
       - name: Cypress report generation
         run: node cucumber-html-report.js
