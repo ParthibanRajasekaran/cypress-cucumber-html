@@ -33,10 +33,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install npm dependencies using Node.js 16.x
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - run: npm ci
+          node-version: '16.x'
+          
+      - run: npm install
 
       - name: Test run
         run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secret.CYPRESS_RECORD_KEY}}
