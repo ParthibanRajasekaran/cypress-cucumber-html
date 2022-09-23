@@ -26,23 +26,20 @@ jobs:
 
   Run-tests-for:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.14.2-slim-chrome103-ff102
+    container: cypress/browsers:node16.16.0-chrome105-ff104-edge
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+      - name: Install npm dependencies using Node.js 16.x
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
-
-      - name: Install dependencies
-        run: |
-          npm install
+          node-version: 16
+      - run: npm ci
 
       - name: Test run
-        run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login"
+        run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secret.CYPRESS_RECORD_KEY}}
 
       - name: Cypress report generation
         run: node cucumber-html-report.js
@@ -54,14 +51,14 @@ jobs:
          publish_dir:  /__w/cypress-cucumber/cypress-cucumber/reports/cucumber-htmlreport.html/
          commit_message: ${{ github.event.head_commit.message }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
       # Test run video was always captured, so this action uses "always()" condition
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-videos
