@@ -1,29 +1,10 @@
-#version: 2.1
-#orbs:
-#  cypress: cypress-io/cypress@1
-#workflows:
-#  build:
-#    jobs:
-#      - cypress/run:
-#          command: npx cross-env E2E_ENV=.dev cypress run --record --key $CYPRESS_RECORD_KEY --browser=chrome
-
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
-executors:
-  with-chrome:
-    resource_class: small
-    docker:
-      - image: "cypress/browsers:node16.17.1-chrome105-ff104-edge"
 workflows:
   build:
     jobs:
-      - cypress/install
       - cypress/run:
-          requires:
-            - cypress/install
-          executor: with-chrome
-          browser: chrome
           command: npx cross-env E2E_ENV=.dev cypress run --record --key $CYPRESS_RECORD_KEY --browser=chrome
           post-steps:
             - run: ls
