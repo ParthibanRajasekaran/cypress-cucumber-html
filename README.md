@@ -1,7 +1,7 @@
 # cypress-cucumber 
   <p align="left">
     <a href="https://github.com/ParthibanRajasekaran/cypress-cucumber/actions">
-      <img alt="Tests" src="https://github.com/ParthibanRajasekaran/cypress-cucumber/workflows/Cypress Tests/badge.svg" />
+      <img alt="Tests" src="https://github.com/ParthibanRajasekaran/cypress-cucumber-html/workflows/Cypress Tests/badge.svg" />
     </a>
     <br />
   </p>
