@@ -99,3 +99,7 @@ npx cross-env E2E_ENV=.dev cypress run --env TAGS="@login and @invalid"
 
 ## Bonus
 [Cypress Cheat Sheet](https://chercher.tech/cypress-io/cheat-sheet-cypress-io)
+
+## IDE sponsorship offered by
+<a href="https://jb.gg/OpenSourceSupport">
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo." style="width:150px;" />  </a>
