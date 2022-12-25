@@ -59,3 +59,7 @@ jsonlogs/*
 jsonlogs/messages.ndjson
 
 coverage/
+
+# Ignore allure report generation
+allure-report/
+allure-results/
