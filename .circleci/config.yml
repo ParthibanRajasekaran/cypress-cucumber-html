@@ -1,0 +1,8 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          command: npx cross-env E2E_ENV=.dev cypress run --record --key $CYPRESS_RECORD_KEY

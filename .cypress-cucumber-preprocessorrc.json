@@ -1,0 +1,14 @@
+{
+  "messages": {
+    "enabled": true,
+    "output": "jsonlogs/messages.ndjson"
+  },
+  "html": {
+    "enabled": true
+  },
+  "stepDefinitions": [
+    "[filepath]/**/*.js",
+    "[filepath].js",
+    "cypress/e2e/step_definitions/*.js"
+  ]
+}
