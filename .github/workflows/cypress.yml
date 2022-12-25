@@ -42,16 +42,6 @@ jobs:
       - name: Test run
         run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secrets.CYPRESS_RECORD_KEY}}
 
-      - name: Cypress report generation
-        run: node cucumber-html-report.js
-      
-      - name: Deploy report page
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir:  /__w/cypress-cucumber-html/cypress-cucumber-html
-         commit_message: ${{ github.event.head_commit.message }}
-
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
@@ -64,6 +54,44 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
+
+ # For simple html report generation
+
+#      - name: Cypress report generation
+#        run: node cucumber-html-report.js
+#      - name: Deploy report page
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir:  /__w/cypress-cucumber-html/cypress-cucumber-html
+#         commit_message: ${{ github.event.head_commit.message }}
+
 
 #
 #  edge-test:

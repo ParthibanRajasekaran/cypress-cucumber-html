@@ -9,6 +9,7 @@ const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
   projectId: 'd1dmex',
@@ -24,6 +25,8 @@ module.exports = defineConfig({
       config.env.password = process.env.PASSWORD;
       config.env.emailId = process.env.EMAIL_ID;
 
+      allureWriter(on, config);
+
       console.log(`Tests are running on ${config.env.environment} environment`);
 
       const bundler = createBundler({
@@ -38,6 +41,10 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/features/*.feature",
     supportFile: "cypress/support/e2e.js",
     chromeWebSecurity: false,
+    env: {
+      allureReuseAfterSpec: true,
+      allure: true
+    }
   },
 
   reporter: '@reportportal/agent-js-cypress',
