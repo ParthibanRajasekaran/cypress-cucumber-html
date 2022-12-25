@@ -42,14 +42,35 @@ jobs:
       - name: Test run
         run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secrets.CYPRESS_RECORD_KEY}}
 
-      - name: Test marketplace action
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
+        #id: allure-report
         with:
-          allure_results: build/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
           allure_history: allure-history
 
       - name: Deploy report to Github Pages
@@ -71,18 +92,6 @@ jobs:
 #         publish_dir:  /__w/cypress-cucumber-html/cypress-cucumber-html
 #         commit_message: ${{ github.event.head_commit.message }}
 
-      - uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      # Test run video was always captured, so this action uses "always()" condition
-
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
 
 #
 #  edge-test:
