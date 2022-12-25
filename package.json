@@ -15,8 +15,11 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "allure-commandline": "^2.20.1",
     "cypress": "^12.2.0",
     "cypress-multi-reporters": "^1.6.2",
+    "mocha-allure-reporter": "^1.4.0",
     "multiple-cucumber-html-reporter": "^3.0.1"
   },
   "dependencies": {
