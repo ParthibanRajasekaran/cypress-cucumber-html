@@ -13,10 +13,10 @@
   ],
   "author": "Parthiban Rajasekaran",
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
-    "cypress": "^10.10.0",
-    "cypress-multi-reporters": "^1.6.1",
+    "cypress": "^12.2.0",
+    "cypress-multi-reporters": "^1.6.2",
     "multiple-cucumber-html-reporter": "^3.0.1"
   },
   "dependencies": {
