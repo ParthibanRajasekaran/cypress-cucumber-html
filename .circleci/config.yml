@@ -1,14 +1,23 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
-workflows:
+version: 2
+jobs:
   build:
-    jobs:
-      - cypress/run:
+    docker:
+      - image: cypress/base:14.16.0
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm ci
+      - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          # cache NPM modules and the folder with the Cypress binary
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run:
+          name: Running Cypress tests
           command: npx cross-env E2E_ENV=.dev cypress run --record --key $CYPRESS_RECORD_KEY --browser=chrome
-          post-steps:
-            - run: ls
-            - store_test_results:
-                path: cypress/results
-            - store_artifacts:
-                path: cypress/screenshots
