@@ -18,12 +18,12 @@ module.exports = defineConfig({
     async setupNodeEvents(on, config) {
       config.env = config.env || {};
 
-      // config.baseUrl = process.env.URL;
-      config.env.url = process.env.URL;
-      config.env.environment = process.env.ENVIRONMENT;
-      config.env.username = process.env.USERNAME;
-      config.env.password = process.env.PASSWORD;
-      config.env.emailId = process.env.EMAIL_ID;
+      // // config.baseUrl = process.env.URL;
+      // config.env.url = process.env.URL;
+      // config.env.environment = process.env.ENVIRONMENT;
+      // config.env.username = process.env.USERNAME;
+      // config.env.password = process.env.PASSWORD;
+      // config.env.emailId = process.env.EMAIL_ID;
 
       allureWriter(on, config);
 
@@ -43,14 +43,19 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     env: {
       allureReuseAfterSpec: true,
-      allure: true
+      allure: true,
+      url:"https://the-internet.herokuapp.com",
+      environment:"default",
+      username:"tomsmith",
+      password:"SuperSecretPassword!",
+      emailId:"sample@test.com"
     }
   },
 
   reporter: '@reportportal/agent-js-cypress',
   reporterOptions: {
     endpoint: 'https://demo.reportportal.io/api/v1',
-    token: 'ad694c45-d983-4df6-a6f0-2ba15ee4ccbf',
+    token: '40372533-ddf9-4a41-8692-b366177d6b74',
     launch: "cypress-cucumber-html",
     project: "parthibanrajasekaran_personal",
     description: "Test run for Cypress E2E",
