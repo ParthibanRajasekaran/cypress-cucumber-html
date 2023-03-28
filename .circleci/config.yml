@@ -7,4 +7,4 @@ workflows:
       - cypress/run:
           install-browsers: true
           start-command: 'npm run start'
-          cypress-command: 'npx cypress run --config-file cypress.dev.config.js --record --key ${{secrets.CYPRESS_RECORD_KEY}}'
+          cypress-command: 'npx cypress run --config-file cypress.dev.config.js'
