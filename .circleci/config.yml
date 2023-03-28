@@ -1,8 +1,10 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@3
 workflows:
-  build:
+  test:
     jobs:
       - cypress/run:
-          command: npx cross-env E2E_ENV=.dev cypress run --record --key $CYPRESS_RECORD_KEY
+          install-browsers: true
+          start-command: 'npm run start'
+          cypress-command: 'npx cypress run --config-file cypress.dev.config.js --record --key ${{secrets.CYPRESS_RECORD_KEY}}'
