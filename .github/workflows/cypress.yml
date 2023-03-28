@@ -40,7 +40,7 @@ jobs:
       - run: npm install
 
       - name: Test run
-        run: npx cross-env E2E_ENV=.dev cypress run --browser=chrome --env TAGS="@login" --record --key ${{secrets.CYPRESS_RECORD_KEY}}
+        run: npx cypress run --env grepTags='-@smoke' --config-file cypress.dev.config.js --record --key ${{secrets.CYPRESS_RECORD_KEY}}
 
       - uses: actions/upload-artifact@v3
         if: failure()
