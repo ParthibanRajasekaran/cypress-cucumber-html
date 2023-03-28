@@ -1,6 +1,6 @@
 # cypress-cucumber-html
 
-[![cypress-cucumber-html](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/vwviug/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/vwviug/runs)
+[![cypress-cucumber-html](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/d1dmex&style=flat&logo=cypress)](https://cloud.cypress.io/projects/d1dmex/runs)
 
 Official documentation: [Cypress](https://docs.cypress.io)
 To know about recent Cypress feature click [here](https://www.cypress.io/features/)
