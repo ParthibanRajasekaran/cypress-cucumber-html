@@ -1,10 +1,6 @@
-# cypress-cucumber 
-  <p align="left">
-    <a href="https://github.com/ParthibanRajasekaran/cypress-cucumber/actions">
-      <img alt="Tests" src="https://github.com/ParthibanRajasekaran/cypress-cucumber-html/workflows/Cypress Tests/badge.svg" />
-    </a>
-    <br />
-  </p>
+# cypress-cucumber-html
+
+[![cypress-cucumber-html](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/vwviug/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/vwviug/runs)
 
 Official documentation: [Cypress](https://docs.cypress.io)
 To know about recent Cypress feature click [here](https://www.cypress.io/features/)
@@ -50,39 +46,39 @@ To run the tests via CLI on a headless mode
 npx cypress run
 ```
 
-To run the tests via CLI with an .env (cypress-cucumber-html/.env)
+To run the tests via CLI with default env congif (cypress-cucumber-html/cypress.config.js)
 ```bash 
 npx cross-env E2E_ENV= cypress run
 ```
 
-To run the tests via CLI with an .env (cypress-cucumber-html/.env.dev)
+To run the tests via CLI with dev env configs (cypress-cucumber-html/cypress.dev.config.js)
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run
+npx cypress run --config-file cypress.dev.config.js
 ```
 
-To run the tests via CLI with an .env (cypress-cucumber-html/.env.qa)
+To run the tests via CLI with qa env configs (cypress-cucumber-html/cypress.qa.config.js)
 ```bash 
-npx cross-env E2E_ENV=.qa cypress run
+npx cypress run --config-file cypress.qa.config.js
 ```
 
 To run the tests via CLI with an env config
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run --browser chrome
+npx cypress run --browser chrome --config-file cypress.dev.config.js
 ```
 
-To run one particulat tag
+To run one particular tag
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run --env TAGS="@invalid"
+npx cypress run --env TAGS="@invalid" --config-file cypress.dev.config.js
 ```
 
 To run the tests with one particular tag but exclude another tag name via CLI
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run --env TAGS="@login and not @invalid"
+npx cypress run --env TAGS="@login and not @invalid" --config-file cypress.dev.config.js
 ```
 
 To run the tests with combination of tag names via CLI
 ```bash 
-npx cross-env E2E_ENV=.dev cypress run --env TAGS="@login and @invalid"
+npx cypress run --env TAGS="@login and @invalid" --config-file cypress.dev.config.js
 ```
 
 
