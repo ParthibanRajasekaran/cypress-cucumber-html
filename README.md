@@ -13,7 +13,7 @@ Minimum configuration for optimal usage:
 [Cypress](https://github.com/cypress-io/cypress/releases) - 10+
 
 Note: 
-- Node installation will automatically intall NPM from the above link
+- Node installation will automatically install NPM from the above link
 - You can validate the version installed via
 ```bash 
 npm --version
@@ -25,7 +25,7 @@ Cypress --version
 Extensions suggested for optimal Cypress usage: https://docs.cypress.io/guides/tooling/IDE-integration#Visual-Studio-Code
 Extensions for icon theme: https://marketplace.visualstudio.com/search?term=icon&target=VSCode&category=All%20categories&sortBy=Relevance
 
-## Gettings started:
+## Getings started:
 
 Clone: https://github.com/vwdfive/cypress-cucumber
 Open the project in your editor
