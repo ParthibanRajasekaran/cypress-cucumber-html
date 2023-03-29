@@ -25,7 +25,7 @@ Cypress --version
 Extensions suggested for optimal Cypress usage: https://docs.cypress.io/guides/tooling/IDE-integration#Visual-Studio-Code
 Extensions for icon theme: https://marketplace.visualstudio.com/search?term=icon&target=VSCode&category=All%20categories&sortBy=Relevance
 
-## Getings started:
+## Getting started:
 
 Clone: https://github.com/vwdfive/cypress-cucumber
 Open the project in your editor
