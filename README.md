@@ -46,9 +46,9 @@ To run the tests via CLI on a headless mode
 npx cypress run
 ```
 
-To run the tests via CLI with default env congif (cypress-cucumber-html/cypress.config.js)
+To run the tests via CLI with default env congig (cypress-cucumber-html/cypress.config.js)
 ```bash 
-npx cross-env E2E_ENV= cypress run
+npx cypress run
 ```
 
 To run the tests via CLI with dev env configs (cypress-cucumber-html/cypress.dev.config.js)
