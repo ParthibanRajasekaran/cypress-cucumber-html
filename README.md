@@ -46,7 +46,7 @@ To run the tests via CLI on a headless mode
 npx cypress run
 ```
 
-To run the tests via CLI with default env congig (cypress-cucumber-html/cypress.config.js)
+To run the tests via CLI with default env config (cypress-cucumber-html/cypress.config.js)
 ```bash 
 npx cypress run
 ```
@@ -84,7 +84,7 @@ npx cypress run --env TAGS="@login and @invalid" --config-file cypress.dev.confi
 
 ## Implementing tests
 
-- Create a XXX.feature file within **cypress / e2e / features** (*Eg. XYZ.feature*)
+- Create the XXX.feature file within **cypress / e2e / features** (*Eg. XYZ.feature*)
 - Create scenarios within the feature file in gherkin format for your requirement 
 - Select the scenario create and right click on it and copy step definition to the clip board
 - Within e2e/step_definitions, create a **StepDefinition class** with the same name as the feature file
