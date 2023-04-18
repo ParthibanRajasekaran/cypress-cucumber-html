@@ -43,22 +43,24 @@ Then(/^check there is at least one product that shows 'OUT OF STOCK' in the resu
             cy.log(`Number of OUT OF STOCK items: ${outOfStockCount}`);
         });
     productListPage.getOutOfStockProducts().should("have.length.greaterThan", 0);
-  });
-
-When(/^the user selects 'Sort By:' - "(.+)"$/, (sortByOption) => {
-    productListPage.getSortByDropdown().click({force:true});
-    productListPage.getSortByDropdownList().contains(sortByOption.toString()).click({force:true});
 });
 
-Then(/^10 products should be displayed in order of price \(low to high\)$/, () => {
-    // Intercept the GET request
+When(/^the user selects 'Sort By:' - "(.+)"$/, (sortByOption) => {
+    productListPage.getSortByDropdown().click({force: true});
+
+    // Intercept the POST request
     cy.intercept({
-        method: 'GET',
-        url: 'https://api-v1.cromwell.co.uk/domain-config',
+        method: 'POST',
+        url: 'https://api-v1.cromwell.co.uk/search',
     }).as('sortRequest');
+
+    productListPage.getSortByDropdownList().contains(sortByOption.toString()).click({force: true});
 
     // Wait for the request to complete and check if the status code is 200
     cy.wait('@sortRequest').its('response.statusCode').should('eq', 200);
+});
+
+Then(/^10 products should be displayed in order of price \(low to high\)$/, () => {
 
 // Replace the 'selector for product price' with the appropriate selector for your application
     productListPage.productPrice().then(($prices) => {
@@ -76,6 +78,6 @@ Then(/^10 products should be displayed in order of price \(low to high\)$/, () =
         expect(isSortedLowToHigh).to.be.true;
         expect($prices).to.have.length(10);
     });
-
 });
+
 
