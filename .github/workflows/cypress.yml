@@ -11,7 +11,9 @@ jobs:
 
   product-list-tests:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.16.0-chrome105-ff104-edge
+    container:
+      image: cypress/browsers:node16.16.0-chrome105-ff104-edge
+      options: --user 1001
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
