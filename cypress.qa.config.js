@@ -6,10 +6,9 @@ module.exports = {
         ...baseConfig.env,
         allureReuseAfterSpec: true,
         allure: true,
-        url:"https://the-internet.herokuapp.com",
-        environment:"qa",
-        username:"tomsmith",
-        password:"SuperSecretPassword!",
-        emailId:"sample@test.com"
+
+        environment: "qa",
+
+        task_url: "https://www.cromwell.co.uk/shop/abrasives/cutting/c/090901?pageLimit=10"
     }
 };
