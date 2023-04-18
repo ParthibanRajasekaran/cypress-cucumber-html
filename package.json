@@ -17,13 +17,12 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@shelex/cypress-allure-plugin": "^2.37.0",
     "allure-commandline": "^2.21.0",
-    "cypress": "^12.8.1",
+    "cypress": "^12.9.0",
     "cypress-multi-reporters": "^1.6.3",
     "mocha-allure-reporter": "^1.4.0",
     "multiple-cucumber-html-reporter": "^3.3.0"
   },
   "dependencies": {
-    "@reportportal/agent-js-cypress": "^5.1.2",
     "dotenv": "^16.0.3"
   }
 }
