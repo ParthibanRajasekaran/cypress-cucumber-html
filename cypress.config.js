@@ -55,7 +55,7 @@ module.exports = defineConfig({
   reporter: '@reportportal/agent-js-cypress',
   reporterOptions: {
     endpoint: 'https://demo.reportportal.io/api/v1',
-    token: '40372533-ddf9-4a41-8692-b366177d6b74',
+    apiKey: 'testautomation_-JiOr8FjRHqSeaAiKW-lcphz-IFWC5Nin-kfqsA3n06Uz8CQRcXvl6Ate2m-pCew',
     launch: "cypress-cucumber-html",
     project: "parthibanrajasekaran_personal",
     description: "Test run for Cypress E2E",
