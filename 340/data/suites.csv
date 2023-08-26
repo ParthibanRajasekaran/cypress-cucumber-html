@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Jul 15 04:23:01 GMT 2023","Sat Jul 15 04:23:03 GMT 2023","1188","","User Login","","","","Login with invalid credentials (example #1)",""
-"passed","Sat Jul 15 04:22:59 GMT 2023","Sat Jul 15 04:23:01 GMT 2023","1950","","User Login","","","","Login with valid credentials",""
-"passed","Sat Jul 15 04:23:03 GMT 2023","Sat Jul 15 04:23:04 GMT 2023","1129","","User Login","","","","Login with invalid credentials (example #2)",""
