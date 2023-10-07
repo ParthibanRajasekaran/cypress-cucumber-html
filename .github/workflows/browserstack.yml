@@ -1,0 +1,26 @@
+name: Cypress Tests on BrowserStack
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 2,6'
+
+jobs:
+  cypress-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install npm dependencies using Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - run: npm install
+
+      - name: Run Cypress Cucumber tests on BrowserStack
+        run: npx browserstack-cypress run --sync --username ${{ secrets.BROWSERSTACK_USERNAME }} --key ${{ secrets.BROWSERSTACK_ACCESS_KEY }} --env KEY=${{secrets.CIPHER_KEY}}
