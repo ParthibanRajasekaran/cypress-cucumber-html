@@ -64,3 +64,6 @@ reports/
 # Ignore allure report generation
 allure-report/
 allure-results/
+
+log/
+results/
